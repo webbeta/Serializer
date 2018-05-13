@@ -1,0 +1,4 @@
+util.serializer.Foo:
+  properties:
+    id:
+      groups: [grupo]

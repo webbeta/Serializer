@@ -1,0 +1,10 @@
+util.serializer.ClassWithGetters3:
+  access_type: public_method
+  properties:
+    id:
+      access_type: property
+      groups: [a]
+    foo:
+      groups: [a]
+    bar:
+      groups: [a]

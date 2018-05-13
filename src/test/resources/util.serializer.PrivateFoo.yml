@@ -1,0 +1,4 @@
+util.serializer.PrivateFoo:
+  properties:
+    id:
+      groups: [private_foo]

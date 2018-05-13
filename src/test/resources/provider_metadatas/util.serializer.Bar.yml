@@ -1,0 +1,4 @@
+util.serializer.Bar:
+  properties:
+    id:
+      groups: [grupo]

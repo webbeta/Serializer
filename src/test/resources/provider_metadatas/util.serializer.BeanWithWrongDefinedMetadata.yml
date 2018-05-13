@@ -1,0 +1,4 @@
+util.serializer.WrongMetadata:
+  properties:
+    id:
+      groups: [grupo]
