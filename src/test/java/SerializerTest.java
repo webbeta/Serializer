@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import es.webbeta.Serializer;
+import es.webbeta.SerializerBuilder;
 import es.webbeta.serializer.*;
 import es.webbeta.serializer.type.DateFormatType;
 import es.webbeta.serializer.type.FieldAccessType;
@@ -61,9 +62,11 @@ public class SerializerTest {
             }
         };
 
-        ConfigurationManager configurationManager = new ConfigurationManager(configurationProvider, environment, cache);
-
-        return new Serializer(configurationManager);
+        return SerializerBuilder.build()
+                .withCache(cache)
+                .withConfigurationProvider(configurationProvider)
+                .withEnvironment(environment)
+                .get();
     }
 
     @Test

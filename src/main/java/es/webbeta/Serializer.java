@@ -27,7 +27,7 @@ public class Serializer {
 
     private ILogger logger;
 
-    public Serializer(ConfigurationManager configurationManager) {
+    Serializer(ConfigurationManager configurationManager) {
         this.configurationManager = configurationManager;
         formatter = configurationManager.getFieldFormatter();
     }
