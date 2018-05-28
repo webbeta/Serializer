@@ -44,9 +44,6 @@ public class SerializerTest {
 
         IEnvironment environment = () -> false;
 
-        FileMetadataAccessor fileMetadataAccessor = new FileMetadataAccessor();
-        fileMetadataAccessor.setMetadataPath(Paths.get((String) config.get(ConfigurationManager.METADATA_DIR_KEY)));
-
         ICache cache = new ICache() {
             @Override
             public String get(String key) {
