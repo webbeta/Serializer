@@ -13,49 +13,49 @@ YML based serializer for Java. Based on JMS serializer https://jmsyst.com/libs/s
 To create a Serializer instance:
 
 ```java
-    ICache cache = new ICache() {
-        @Override
-        public String get(String key) { return null; }
-        
-        @Override
-        public void set(String key, String content) {}
-        
-        @Override
-        public void remove(String key) {}
-    };
-
-    IConfigurationProvider configurationProvider = new IConfigurationProvider() {
-        @Override
-        public boolean getBoolean(String key, boolean defaultValue) { return true; }
-        
-        @Override
-        public String getString(String key, String defaultValue) {  return ""; }
-    };
+ICache cache = new ICache() {
+    @Override
+    public String get(String key) { return null; }
     
-    IEnvironment environment = () -> false;
+    @Override
+    public void set(String key, String content) {}
+    
+    @Override
+    public void remove(String key) {}
+};
 
-    Serializer serializer = SerializerBuilder.build()
-            .withCache(cache)
-            .withConfigurationProvider(configurationProvider)
-            .withEnvironment(environment)
-            .get();
+IConfigurationProvider configurationProvider = new IConfigurationProvider() {
+    @Override
+    public boolean getBoolean(String key, boolean defaultValue) { return true; }
+    
+    @Override
+    public String getString(String key, String defaultValue) {  return ""; }
+};
+
+IEnvironment environment = () -> false;
+
+Serializer serializer = SerializerBuilder.build()
+        .withCache(cache)
+        .withConfigurationProvider(configurationProvider)
+        .withEnvironment(environment)
+        .get();
 ```
 
 And to add a logger instance:
 
 ```java
-    ILogger logger = new ILogger() {
-        @Override
-        public Level getLevel() { return Level.ERROR; }
-    
-        @Override
-        public void setLevel(Level level) { }
-    
-        @Override
-        public void error(String message) { }
-    };
+ILogger logger = new ILogger() {
+    @Override
+    public Level getLevel() { return Level.ERROR; }
 
-    serializer.setLogger(logger);
+    @Override
+    public void setLevel(Level level) { }
+
+    @Override
+    public void error(String message) { }
+};
+
+serializer.setLogger(logger);
 ```
 
 ## License
