@@ -57,6 +57,51 @@ ILogger logger = new ILogger() {
 
 serializer.setLogger(logger);
 ```
+## Quick examples
+
+Class Foo:
+
+```java
+package foo.bar;
+
+class Foo {
+    
+    private String bar = "foobar";
+    
+    public String getBar() {
+        return bar;
+    }
+    
+    public Long getCalc() {
+        return 2 + 2;
+    }
+    
+}
+
+```
+
+Yml file (named ```foo.bar.Foo.yml```):
+
+```yaml
+foo.bar.Foo:
+  virtual_properties:
+    getCalc:
+      serialized_name: calc
+      groups: [barGroup]
+  properties:
+    bar:
+      groups: [fooGroup]
+
+```
+
+Usage:
+
+```java
+serializer.serialize(fooInstance, "fooGroup", "barGroup");
+
+// it will return
+// {"bar": "foobar", "calc": 4}
+```
 
 ## License
 
