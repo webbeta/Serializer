@@ -1,7 +1,7 @@
 # webBeta Serializer
 
 [![Build Status](https://travis-ci.org/webbeta/Serializer.svg?branch=master)](https://travis-ci.org/webbeta/Serializer)
-![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 * [What is webBeta Serializer?](#what-is-webbeta-serializer?)
 * [License](#license)
