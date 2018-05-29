@@ -1,6 +1,6 @@
 package es.webbeta.serializer.base;
 
-public interface IParentFieldData {
+public interface ParentFieldData {
     Class<?> getKlass();
     String getFieldName();
     String[] getGroups();

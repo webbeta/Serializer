@@ -1,21 +1,21 @@
 package es.webbeta.serializer;
 
-import es.webbeta.serializer.base.IMetadataAccessor;
-import es.webbeta.serializer.base.IParentFieldData;
-import es.webbeta.serializer.base.ISerializerMetadataProvider;
+import es.webbeta.serializer.base.MetadataAccessor;
+import es.webbeta.serializer.base.ParentFieldData;
+import es.webbeta.serializer.base.SerializerMetadataProvider;
 import es.webbeta.serializer.metadata.*;
 import es.webbeta.serializer.type.FieldAccessType;
 import org.yaml.snakeyaml.Yaml;
 
 import java.util.*;
 
-public class SerializerYamlMetadataProvider implements ISerializerMetadataProvider {
+public class SerializerYamlMetadataProvider implements SerializerMetadataProvider {
 
-    private IMetadataAccessor metadataAccessor;
+    private MetadataAccessor metadataAccessor;
 
     private Map<String, Metadata> metadatas;
 
-    public SerializerYamlMetadataProvider(IMetadataAccessor metadataAccessor) {
+    public SerializerYamlMetadataProvider(MetadataAccessor metadataAccessor) {
         this.metadataAccessor = metadataAccessor;
 
         metadatas = new HashMap<>();
@@ -65,7 +65,7 @@ public class SerializerYamlMetadataProvider implements ISerializerMetadataProvid
     }
 
     @Override
-    public String[] getPropertiesByGroup(Class<?> klass, IParentFieldData parentData, String... group) {
+    public String[] getPropertiesByGroup(Class<?> klass, ParentFieldData parentData, String... group) {
         initializeMetadata(klass);
 
         if (!containsMetadata(klass))

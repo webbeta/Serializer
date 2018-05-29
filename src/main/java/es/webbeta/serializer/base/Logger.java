@@ -1,6 +1,6 @@
 package es.webbeta.serializer.base;
 
-public interface ILogger {
+public interface Logger {
 
     enum Level {
         ERROR

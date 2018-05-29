@@ -2,9 +2,9 @@ package es.webbeta.serializer.base;
 
 import es.webbeta.serializer.type.FieldAccessType;
 
-public interface ISerializerMetadataProvider {
+public interface SerializerMetadataProvider {
     Boolean canProvide(Class<?> klass);
-    String[] getPropertiesByGroup(Class<?> klass, IParentFieldData parentData, String... group);
+    String[] getPropertiesByGroup(Class<?> klass, ParentFieldData parentData, String... group);
     String[] getGroupsByFieldName(Class<?> klass, String fieldName);
     Boolean hasPropertyAccessType(Class<?> klass, String propertyName);
     FieldAccessType getPropertyAccessType(Class<?> klass, String propertyName);

@@ -1,10 +1,8 @@
 package es.webbeta.serializer;
 
-import es.webbeta.serializer.base.IParentFieldData;
-
 import java.util.Objects;
 
-public class ParentFieldData implements IParentFieldData {
+public class ParentFieldData implements es.webbeta.serializer.base.ParentFieldData {
 
     public ParentFieldData(Class<?> klass, String fieldName, String[] groups) {
         this.klass = klass;

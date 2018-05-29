@@ -1,17 +1,17 @@
 package es.webbeta.serializer;
 
-import es.webbeta.serializer.base.ICache;
-import es.webbeta.serializer.base.IMetadataAccessor;
+import es.webbeta.serializer.base.Cache;
+import es.webbeta.serializer.base.MetadataAccessor;
 
 import java.io.File;
 
-public class CacheMetadataAccessor extends FileMetadataAccessor implements IMetadataAccessor {
+public class CacheMetadataAccessor extends FileMetadataAccessor implements MetadataAccessor {
 
     private static final String KEY_TPL = "serializer_metadata___%s";
 
-    private ICache cache;
+    private Cache cache;
 
-    public CacheMetadataAccessor(ICache cache) {
+    public CacheMetadataAccessor(Cache cache) {
         super();
 
         this.cache = cache;

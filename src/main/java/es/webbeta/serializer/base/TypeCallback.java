@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import java.util.Date;
 import java.util.Map;
 
-public interface ITypeCallback {
+public interface TypeCallback {
     void itsByte(Byte value) throws IOException;
     void itsShort(Short value) throws IOException;
     void itsInteger(Integer value) throws IOException;

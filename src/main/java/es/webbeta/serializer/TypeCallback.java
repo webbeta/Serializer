@@ -1,14 +1,12 @@
 package es.webbeta.serializer;
 
-import es.webbeta.serializer.base.ITypeCallback;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Map;
 
-public abstract class TypeCallback implements ITypeCallback {
+public abstract class TypeCallback implements es.webbeta.serializer.base.TypeCallback {
 
     @Override
     public void itsByte(Byte value) throws IOException {}

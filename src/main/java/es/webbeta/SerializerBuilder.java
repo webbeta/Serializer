@@ -1,41 +1,41 @@
 package es.webbeta;
 
 import es.webbeta.serializer.*;
-import es.webbeta.serializer.base.ICache;
-import es.webbeta.serializer.base.IConfigurationProvider;
-import es.webbeta.serializer.base.IEnvironment;
-import es.webbeta.serializer.base.ILogger;
+import es.webbeta.serializer.base.Cache;
+import es.webbeta.serializer.base.ConfigurationProvider;
+import es.webbeta.serializer.base.Environment;
+import es.webbeta.serializer.base.Logger;
 
 public class SerializerBuilder {
 
-    private IConfigurationProvider configurationProvider;
-    private IEnvironment environment;
-    private ICache cache;
-    private ILogger logger;
+    private ConfigurationProvider configurationProvider;
+    private Environment environment;
+    private Cache cache;
+    private Logger logger;
 
     public static SerializerBuilder build() {
         return new SerializerBuilder();
     }
 
-    public SerializerBuilder withConfigurationProvider(final IConfigurationProvider configurationProvider) {
+    public SerializerBuilder withConfigurationProvider(final ConfigurationProvider configurationProvider) {
         this.configurationProvider = configurationProvider;
 
         return this;
     }
 
-    public SerializerBuilder withEnvironment(final IEnvironment environment) {
+    public SerializerBuilder withEnvironment(final Environment environment) {
         this.environment = environment;
 
         return this;
     }
 
-    public SerializerBuilder withCache(final ICache cache) {
+    public SerializerBuilder withCache(final Cache cache) {
         this.cache = cache;
 
         return this;
     }
 
-    public SerializerBuilder withLogger(final ILogger logger) {
+    public SerializerBuilder withLogger(final Logger logger) {
         this.logger = logger;
 
         return this;

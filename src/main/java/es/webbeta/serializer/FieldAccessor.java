@@ -1,8 +1,7 @@
 package es.webbeta.serializer;
 
 import com.google.common.collect.Lists;
-import es.webbeta.serializer.base.IFieldAccessor;
-import es.webbeta.serializer.base.ILogger;
+import es.webbeta.serializer.base.Logger;
 import es.webbeta.serializer.type.FieldAccessType;
 
 import java.lang.reflect.Field;
@@ -12,7 +11,7 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FieldAccessor implements IFieldAccessor {
+public class FieldAccessor implements es.webbeta.serializer.base.FieldAccessor {
 
     private Boolean initialized = false;
 
@@ -22,7 +21,7 @@ public class FieldAccessor implements IFieldAccessor {
     private String fieldName;
     private FieldAccessType accessType;
 
-    private ILogger logger;
+    private Logger logger;
 
     private Boolean exists = false;
     private Object value = null;
@@ -44,7 +43,7 @@ public class FieldAccessor implements IFieldAccessor {
         klassTree.add(klass);
     }
 
-    public void setLogger(ILogger logger) {
+    public void setLogger(Logger logger) {
         this.logger = logger;
     }
 

@@ -1,6 +1,6 @@
 package es.webbeta.serializer.base;
 
-public interface IEnvironment {
+public interface Environment {
 
     boolean isProd();
 

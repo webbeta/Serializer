@@ -1,7 +1,7 @@
 package es.webbeta.serializer;
 
-import es.webbeta.serializer.base.ISerializerMetadataProvider;
-import es.webbeta.serializer.base.ITypeCallback;
+import es.webbeta.serializer.base.SerializerMetadataProvider;
+import es.webbeta.serializer.base.TypeCallback;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -12,9 +12,9 @@ import java.util.UUID;
 
 public class TypeChecker {
 
-    private ISerializerMetadataProvider provider;
+    private SerializerMetadataProvider provider;
 
-    public TypeChecker(ISerializerMetadataProvider provider) {
+    public TypeChecker(SerializerMetadataProvider provider) {
         this.provider = provider;
     }
 
@@ -100,7 +100,7 @@ public class TypeChecker {
         return value instanceof Map;
     }
 
-    public <T> void check(T value, ITypeCallback callback) throws IOException {
+    public <T> void check(T value, TypeCallback callback) throws IOException {
         if (isByte(value)) {
             callback.itsByte((Byte) value);
             callback.itsNumeric(value);

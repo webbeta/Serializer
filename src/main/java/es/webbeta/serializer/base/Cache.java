@@ -1,6 +1,6 @@
 package es.webbeta.serializer.base;
 
-public interface ICache {
+public interface Cache {
 
     String get(String key);
     void set(String key, String content);

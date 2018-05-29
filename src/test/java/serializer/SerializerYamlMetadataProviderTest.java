@@ -1,10 +1,10 @@
 package serializer;
 
 import es.webbeta.serializer.*;
-import es.webbeta.serializer.base.ICache;
-import es.webbeta.serializer.base.IConfigurationProvider;
-import es.webbeta.serializer.base.IEnvironment;
-import es.webbeta.serializer.base.ISerializerMetadataProvider;
+import es.webbeta.serializer.base.Cache;
+import es.webbeta.serializer.base.ConfigurationProvider;
+import es.webbeta.serializer.base.Environment;
+import es.webbeta.serializer.base.SerializerMetadataProvider;
 import org.junit.Test;
 import util.serializer.Bar;
 import util.serializer.BeanWithWrongDefinedMetadata;
@@ -23,7 +23,7 @@ public class SerializerYamlMetadataProviderTest {
 
         config.put(ConfigurationManager.METADATA_DIR_KEY, "src/test/resources/provider_metadatas");
 
-        IConfigurationProvider configurationProvider = new IConfigurationProvider() {
+        ConfigurationProvider configurationProvider = new ConfigurationProvider() {
             @Override
             public boolean getBoolean(String key, boolean defaultValue) {
                 return false;
@@ -35,12 +35,12 @@ public class SerializerYamlMetadataProviderTest {
             }
         };
 
-        IEnvironment environment = () -> isProd;
+        Environment environment = () -> isProd;
 
         FileMetadataAccessor fileMetadataAccessor = new FileMetadataAccessor();
         fileMetadataAccessor.setMetadataPath(Paths.get((String) config.get(ConfigurationManager.METADATA_DIR_KEY)));
 
-        ICache cache = new ICache() {
+        Cache cache = new Cache() {
             @Override
             public String get(String key) {
                 if (key.equalsIgnoreCase(Foo.class.getCanonicalName()))
@@ -68,7 +68,7 @@ public class SerializerYamlMetadataProviderTest {
     @Test
     public void test_can_provide_metadata_for_bean_defined_by_yaml() {
         ConfigurationManager configurationManager = buildAs(false);
-        ISerializerMetadataProvider provider = configurationManager.newMetadataProvider();
+        SerializerMetadataProvider provider = configurationManager.newMetadataProvider();
 
         assertThat(configurationManager.getMetadataAccessor() instanceof FileMetadataAccessor).isTrue();
         assertThat(provider.canProvide(Foo.class)).isTrue();
@@ -83,7 +83,7 @@ public class SerializerYamlMetadataProviderTest {
     @Test
     public void test_can_provide_metadata_for_bean_defined_by_yml() {
         ConfigurationManager configurationManager = buildAs(false);
-        ISerializerMetadataProvider provider = configurationManager.newMetadataProvider();
+        SerializerMetadataProvider provider = configurationManager.newMetadataProvider();
 
         assertThat(configurationManager.getMetadataAccessor() instanceof FileMetadataAccessor).isTrue();
         assertThat(provider.canProvide(Bar.class)).isTrue();
@@ -98,7 +98,7 @@ public class SerializerYamlMetadataProviderTest {
     @Test
     public void test_can_provide_metadata_for_bean_defined_with_correct_filename_but_bad_declaration() {
         ConfigurationManager configurationManager = buildAs(false);
-        ISerializerMetadataProvider provider = configurationManager.newMetadataProvider();
+        SerializerMetadataProvider provider = configurationManager.newMetadataProvider();
 
         assertThat(configurationManager.getMetadataAccessor() instanceof FileMetadataAccessor).isTrue();
         assertThat(provider.canProvide(BeanWithWrongDefinedMetadata.class)).isFalse();
@@ -113,7 +113,7 @@ public class SerializerYamlMetadataProviderTest {
     @Test
     public void test_provide_correct_properties_by_groups_for_metadata() {
         ConfigurationManager configurationManager = buildAs(false);
-        ISerializerMetadataProvider provider = configurationManager.newMetadataProvider();
+        SerializerMetadataProvider provider = configurationManager.newMetadataProvider();
 
         assertThat(configurationManager.getMetadataAccessor() instanceof FileMetadataAccessor).isTrue();
         assertThat(provider.getPropertiesByGroup(Foo.class, null, "grupo")).isEqualTo(new String[]{"id", "fooField"});
@@ -128,7 +128,7 @@ public class SerializerYamlMetadataProviderTest {
     @Test
     public void test_provide_correct_properties_by_groups_for_wrong_metadata() {
         ConfigurationManager configurationManager = buildAs(false);
-        ISerializerMetadataProvider provider = configurationManager.newMetadataProvider();
+        SerializerMetadataProvider provider = configurationManager.newMetadataProvider();
 
         assertThat(configurationManager.getMetadataAccessor() instanceof FileMetadataAccessor).isTrue();
         assertThat(provider.getPropertiesByGroup(BeanWithWrongDefinedMetadata.class, null, "grupo")).isEqualTo(new String[0]);

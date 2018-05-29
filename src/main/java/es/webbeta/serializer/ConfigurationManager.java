@@ -22,12 +22,12 @@ public class ConfigurationManager {
     private FieldAccessType accessType;
     private DateFormatType dateFormatType;
 
-    private IMetadataAccessor metadataAccessor;
+    private MetadataAccessor metadataAccessor;
 
     public ConfigurationManager(
-            IConfigurationProvider conf,
-            IEnvironment environment,
-            ICache cache
+            ConfigurationProvider conf,
+            Environment environment,
+            Cache cache
     ) {
 
         metadataPath = Paths.get(conf.getString(METADATA_DIR_KEY, "conf/serializer/"));
@@ -52,15 +52,15 @@ public class ConfigurationManager {
         return includeNullValues;
     }
 
-    public IMetadataAccessor getMetadataAccessor() {
+    public MetadataAccessor getMetadataAccessor() {
         return metadataAccessor;
     }
 
-    public ISerializerMetadataProvider newMetadataProvider() {
+    public SerializerMetadataProvider newMetadataProvider() {
         return new SerializerYamlMetadataProvider(metadataAccessor);
     }
 
-    public IFieldFormatter getFieldFormatter() {
+    public es.webbeta.serializer.base.FieldFormatter getFieldFormatter() {
         return new FieldFormatter(formatterType);
     }
 

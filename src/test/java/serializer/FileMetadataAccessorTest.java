@@ -1,7 +1,7 @@
 package serializer;
 
 import es.webbeta.serializer.FileMetadataAccessor;
-import es.webbeta.serializer.base.IMetadataAccessor;
+import es.webbeta.serializer.base.MetadataAccessor;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import util.serializer.Bar;
@@ -19,7 +19,7 @@ import static org.fest.assertions.Assertions.assertThat;
 
 public class FileMetadataAccessorTest {
 
-    private static IMetadataAccessor accessor;
+    private static MetadataAccessor accessor;
 
     private static Path metadataPath = null;
 

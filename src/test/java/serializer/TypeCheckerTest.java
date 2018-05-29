@@ -1,10 +1,10 @@
 package serializer;
 
 import es.webbeta.serializer.*;
-import es.webbeta.serializer.base.ICache;
-import es.webbeta.serializer.base.IConfigurationProvider;
-import es.webbeta.serializer.base.IEnvironment;
-import es.webbeta.serializer.base.ISerializerMetadataProvider;
+import es.webbeta.serializer.base.Cache;
+import es.webbeta.serializer.base.ConfigurationProvider;
+import es.webbeta.serializer.base.Environment;
+import es.webbeta.serializer.base.SerializerMetadataProvider;
 import org.junit.Before;
 import org.junit.Test;
 import util.serializer.BeanWithWrongDefinedMetadata;
@@ -21,7 +21,7 @@ import static org.fest.assertions.Assertions.assertThat;
 
 public class TypeCheckerTest {
 
-    private static ISerializerMetadataProvider metadataProvider;
+    private static SerializerMetadataProvider metadataProvider;
 
     enum Sample {
         READ,
@@ -34,7 +34,7 @@ public class TypeCheckerTest {
 
         config.put(ConfigurationManager.METADATA_DIR_KEY, "src/test/resources");
 
-        IConfigurationProvider configurationProvider = new IConfigurationProvider() {
+        ConfigurationProvider configurationProvider = new ConfigurationProvider() {
             @Override
             public boolean getBoolean(String key, boolean defaultValue) {
                 return false;
@@ -46,12 +46,12 @@ public class TypeCheckerTest {
             }
         };
 
-        IEnvironment environment = () -> false;
+        Environment environment = () -> false;
 
         FileMetadataAccessor fileMetadataAccessor = new FileMetadataAccessor();
         fileMetadataAccessor.setMetadataPath(Paths.get(config.get(ConfigurationManager.METADATA_DIR_KEY)));
 
-        ICache cache = new ICache() {
+        Cache cache = new Cache() {
             @Override
             public String get(String key) {
                 return null;

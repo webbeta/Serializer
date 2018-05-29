@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import es.webbeta.Serializer;
 import es.webbeta.SerializerBuilder;
 import es.webbeta.serializer.*;
-import es.webbeta.serializer.base.ICache;
-import es.webbeta.serializer.base.IConfigurationProvider;
-import es.webbeta.serializer.base.IEnvironment;
+import es.webbeta.serializer.base.Cache;
+import es.webbeta.serializer.base.ConfigurationProvider;
+import es.webbeta.serializer.base.Environment;
 import es.webbeta.serializer.type.DateFormatType;
 import es.webbeta.serializer.type.FieldAccessType;
 import es.webbeta.serializer.type.FieldFormatterType;
@@ -32,7 +32,7 @@ public class SerializerTest {
         config.put(ConfigurationManager.FIELD_ACCESS_TYPE_KEY, accessType.toString());
         config.put(ConfigurationManager.DATE_FORMAT_KEY, dateFormatType.toString());
 
-        IConfigurationProvider configurationProvider = new IConfigurationProvider() {
+        ConfigurationProvider configurationProvider = new ConfigurationProvider() {
             @Override
             public boolean getBoolean(String key, boolean defaultValue) {
                 return config.get(key) == null ? defaultValue : Boolean.valueOf(config.get(key).toString());
@@ -44,9 +44,9 @@ public class SerializerTest {
             }
         };
 
-        IEnvironment environment = () -> false;
+        Environment environment = () -> false;
 
-        ICache cache = new ICache() {
+        Cache cache = new Cache() {
             @Override
             public String get(String key) {
                 return null;

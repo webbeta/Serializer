@@ -1,6 +1,6 @@
 package es.webbeta.serializer.base;
 
-public interface IFieldAccessor {
+public interface FieldAccessor {
     Boolean exists();
     <T> T get();
 }

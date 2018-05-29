@@ -1,14 +1,14 @@
 package es.webbeta.serializer;
 
 import es.webbeta.serializer.base.FileUtils;
-import es.webbeta.serializer.base.IMetadataAccessor;
+import es.webbeta.serializer.base.MetadataAccessor;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileMetadataAccessor implements IMetadataAccessor {
+public class FileMetadataAccessor implements MetadataAccessor {
 
     private static final String YAML_EXT = ".yaml";
     private static final String YML_EXT = ".yml";

@@ -3,10 +3,10 @@ package es.webbeta;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import es.webbeta.serializer.*;
-import es.webbeta.serializer.base.IFieldFormatter;
-import es.webbeta.serializer.base.ILogger;
-import es.webbeta.serializer.base.IParentFieldData;
-import es.webbeta.serializer.base.ISerializerMetadataProvider;
+import es.webbeta.serializer.base.FieldFormatter;
+import es.webbeta.serializer.base.Logger;
+import es.webbeta.serializer.base.ParentFieldData;
+import es.webbeta.serializer.base.SerializerMetadataProvider;
 import es.webbeta.serializer.type.DateFormatType;
 import es.webbeta.serializer.type.FieldAccessType;
 
@@ -22,21 +22,21 @@ public class Serializer {
 
     private final ConfigurationManager configurationManager;
 
-    private ISerializerMetadataProvider provider;
-    private IFieldFormatter formatter;
+    private SerializerMetadataProvider provider;
+    private FieldFormatter formatter;
     private TypeChecker typeChecker;
 
     private JsonGenerator generator;
     private StringWriter writer;
 
-    private ILogger logger;
+    private Logger logger;
 
     Serializer(ConfigurationManager configurationManager) {
         this.configurationManager = configurationManager;
         formatter = configurationManager.getFieldFormatter();
     }
 
-    public void setLogger(ILogger logger) {
+    public void setLogger(Logger logger) {
         this.logger = logger;
     }
 
@@ -100,7 +100,7 @@ public class Serializer {
             gen.writeNumber(date.getTime());
     }
 
-    private void fillRawValue(JsonGenerator gen, final IParentFieldData parentFieldData, final Object value, final String[] group) throws IOException {
+    private void fillRawValue(JsonGenerator gen, final ParentFieldData parentFieldData, final Object value, final String[] group) throws IOException {
         typeChecker.check(value, new TypeCallback() {
 
             @Override
@@ -176,8 +176,8 @@ public class Serializer {
                 gen.writeStartArray();
                 for (Object arrValue : value) {
                     String[] parentGroups = provider.getGroupsByFieldName(parentFieldData.getKlass(), parentFieldData.getFieldName());
-                    ParentFieldData fieldData =
-                            new ParentFieldData(parentFieldData.getKlass(), parentFieldData.getFieldName(), parentGroups);
+                    es.webbeta.serializer.ParentFieldData fieldData =
+                            new es.webbeta.serializer.ParentFieldData(parentFieldData.getKlass(), parentFieldData.getFieldName(), parentGroups);
 
                     fillRawValue(gen, fieldData, arrValue, group);
                 }
@@ -189,8 +189,8 @@ public class Serializer {
                 gen.writeStartObject();
                 for (Map.Entry<?, ?> entry : value.entrySet()) {
                     String[] parentGroups = provider.getGroupsByFieldName(parentFieldData.getKlass(), parentFieldData.getFieldName());
-                    ParentFieldData fieldData =
-                            new ParentFieldData(parentFieldData.getKlass(), parentFieldData.getFieldName(), parentGroups);
+                    es.webbeta.serializer.ParentFieldData fieldData =
+                            new es.webbeta.serializer.ParentFieldData(parentFieldData.getKlass(), parentFieldData.getFieldName(), parentGroups);
 
                     gen.writeFieldName(entry.getKey().toString());
                     fillRawValue(gen, fieldData, entry.getValue(), group);
@@ -201,7 +201,7 @@ public class Serializer {
         });
     }
 
-    private void fillWith(Boolean asArray, JsonGenerator gen, final IParentFieldData parentData, final Object ob, final String[] group) throws IOException {
+    private void fillWith(Boolean asArray, JsonGenerator gen, final ParentFieldData parentData, final Object ob, final String[] group) throws IOException {
         Class klass = ob.getClass();
         String[] fields = provider.getPropertiesByGroup(klass, parentData, group);
         if (asArray)
@@ -222,8 +222,8 @@ public class Serializer {
                 }
 
                 if (!typeChecker.isUnserializableObject(accessor.get())) {
-                    ParentFieldData fieldData =
-                            new ParentFieldData(klass, fieldName, group);
+                    es.webbeta.serializer.ParentFieldData fieldData =
+                            new es.webbeta.serializer.ParentFieldData(klass, fieldName, group);
 
                     gen.writeFieldName(getSerializedName(klass, fieldName));
                     fillRawValue(gen, fieldData, accessor.get(), group);
@@ -231,8 +231,8 @@ public class Serializer {
             }
         } else if (typeChecker.isIterable(ob)) {
             for (Object arrValue : (Iterable<?>) ob) {
-                ParentFieldData fieldData =
-                        new ParentFieldData(arrValue.getClass(), null, group);
+                es.webbeta.serializer.ParentFieldData fieldData =
+                        new es.webbeta.serializer.ParentFieldData(arrValue.getClass(), null, group);
 
                 fillRawValue(gen, fieldData, arrValue, group);
             }
