@@ -1,8 +1,8 @@
 # webBeta Serializer
 
 [![Build Status](https://travis-ci.org/webbeta/Serializer.svg?branch=master)](https://travis-ci.org/webbeta/Serializer)
-[![Coverage Status](https://img.shields.io/codecov/c/github/webbeta/Serializer.svg)](https://codecov.io/gh/webbeta/Serializer)
-[![GitHub license](https://img.shields.io/github/license/webbeta/Serializer.svg)](https://github.com/webbeta/Serializer/blob/master/LICENSE)
+[![Coverage Status](https://codecov.io/gh/webbeta/Serializer/branch/master/graph/badge.svg)](https://codecov.io/gh/webbeta/Serializer)
+[![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 * [What is webBeta Serializer?](#what-is-webbeta-serializer?)
 * [Quick examples](#quick-examples)
