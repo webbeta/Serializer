@@ -1,6 +1,10 @@
 package serializer;
 
 import es.webbeta.serializer.*;
+import es.webbeta.serializer.base.ICache;
+import es.webbeta.serializer.base.IConfigurationProvider;
+import es.webbeta.serializer.base.IEnvironment;
+import es.webbeta.serializer.base.ISerializerMetadataProvider;
 import org.junit.Before;
 import org.junit.Test;
 import util.serializer.BeanWithWrongDefinedMetadata;

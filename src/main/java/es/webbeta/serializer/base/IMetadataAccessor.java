@@ -1,4 +1,4 @@
-package es.webbeta.serializer;
+package es.webbeta.serializer.base;
 
 import java.nio.file.Path;
 

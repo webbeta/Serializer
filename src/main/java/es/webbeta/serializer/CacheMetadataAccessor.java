@@ -1,5 +1,8 @@
 package es.webbeta.serializer;
 
+import es.webbeta.serializer.base.ICache;
+import es.webbeta.serializer.base.IMetadataAccessor;
+
 import java.io.File;
 
 public class CacheMetadataAccessor extends FileMetadataAccessor implements IMetadataAccessor {

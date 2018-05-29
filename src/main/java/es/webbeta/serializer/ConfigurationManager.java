@@ -1,5 +1,6 @@
 package es.webbeta.serializer;
 
+import es.webbeta.serializer.base.*;
 import es.webbeta.serializer.type.DateFormatType;
 import es.webbeta.serializer.type.FieldAccessType;
 import es.webbeta.serializer.type.FieldFormatterType;

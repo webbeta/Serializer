@@ -2,6 +2,7 @@ package es.webbeta.serializer;
 
 import com.google.common.base.Ascii;
 import com.google.common.base.CaseFormat;
+import es.webbeta.serializer.base.IFieldFormatter;
 import es.webbeta.serializer.type.FieldFormatterType;
 
 public class FieldFormatter implements IFieldFormatter {

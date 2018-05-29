@@ -1,4 +1,4 @@
-package es.webbeta.serializer;
+package es.webbeta.serializer.base;
 
 import java.io.IOException;
 import java.math.BigDecimal;

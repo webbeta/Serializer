@@ -1,5 +1,8 @@
 package es.webbeta.serializer;
 
+import es.webbeta.serializer.base.IMetadataAccessor;
+import es.webbeta.serializer.base.IParentFieldData;
+import es.webbeta.serializer.base.ISerializerMetadataProvider;
 import es.webbeta.serializer.metadata.*;
 import es.webbeta.serializer.type.FieldAccessType;
 import org.yaml.snakeyaml.Yaml;

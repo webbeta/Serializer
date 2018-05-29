@@ -1,5 +1,8 @@
 package es.webbeta.serializer;
 
+import es.webbeta.serializer.base.ISerializerMetadataProvider;
+import es.webbeta.serializer.base.ITypeCallback;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;

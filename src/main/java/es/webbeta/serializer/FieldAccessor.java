@@ -1,6 +1,8 @@
 package es.webbeta.serializer;
 
 import com.google.common.collect.Lists;
+import es.webbeta.serializer.base.IFieldAccessor;
+import es.webbeta.serializer.base.ILogger;
 import es.webbeta.serializer.type.FieldAccessType;
 
 import java.lang.reflect.Field;

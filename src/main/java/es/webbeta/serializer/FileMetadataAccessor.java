@@ -1,6 +1,7 @@
 package es.webbeta.serializer;
 
 import es.webbeta.serializer.base.FileUtils;
+import es.webbeta.serializer.base.IMetadataAccessor;
 
 import java.io.IOException;
 import java.nio.file.Files;

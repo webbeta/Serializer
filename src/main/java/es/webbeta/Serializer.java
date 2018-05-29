@@ -3,6 +3,10 @@ package es.webbeta;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import es.webbeta.serializer.*;
+import es.webbeta.serializer.base.IFieldFormatter;
+import es.webbeta.serializer.base.ILogger;
+import es.webbeta.serializer.base.IParentFieldData;
+import es.webbeta.serializer.base.ISerializerMetadataProvider;
 import es.webbeta.serializer.type.DateFormatType;
 import es.webbeta.serializer.type.FieldAccessType;
 

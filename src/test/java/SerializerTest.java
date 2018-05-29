@@ -5,13 +5,15 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import es.webbeta.Serializer;
 import es.webbeta.SerializerBuilder;
 import es.webbeta.serializer.*;
+import es.webbeta.serializer.base.ICache;
+import es.webbeta.serializer.base.IConfigurationProvider;
+import es.webbeta.serializer.base.IEnvironment;
 import es.webbeta.serializer.type.DateFormatType;
 import es.webbeta.serializer.type.FieldAccessType;
 import es.webbeta.serializer.type.FieldFormatterType;
 import org.junit.Test;
 import util.serializer.*;
 
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
 

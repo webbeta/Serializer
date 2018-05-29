@@ -1,7 +1,7 @@
 package serializer;
 
 import es.webbeta.serializer.FileMetadataAccessor;
-import es.webbeta.serializer.IMetadataAccessor;
+import es.webbeta.serializer.base.IMetadataAccessor;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import util.serializer.Bar;

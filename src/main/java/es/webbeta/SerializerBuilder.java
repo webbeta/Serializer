@@ -1,6 +1,10 @@
 package es.webbeta;
 
 import es.webbeta.serializer.*;
+import es.webbeta.serializer.base.ICache;
+import es.webbeta.serializer.base.IConfigurationProvider;
+import es.webbeta.serializer.base.IEnvironment;
+import es.webbeta.serializer.base.ILogger;
 
 public class SerializerBuilder {
 
