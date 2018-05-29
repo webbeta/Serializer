@@ -4,6 +4,7 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 * [What is webBeta Serializer?](#what-is-webbeta-serializer?)
+* [Quick examples](#quick-examples)
 * [License](#license)
 
 ## What is webBeta Serializer?
