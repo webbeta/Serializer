@@ -15,7 +15,7 @@ YML based serializer for Java. Based on JMS serializer https://jmsyst.com/libs/s
 To create a Serializer instance:
 
 ```java
-ICache cache = new ICache() {
+Cache cache = new Cache() {
     @Override
     public String get(String key) { return null; }
     
@@ -26,7 +26,7 @@ ICache cache = new ICache() {
     public void remove(String key) {}
 };
 
-IConfigurationProvider configurationProvider = new IConfigurationProvider() {
+ConfigurationProvider configurationProvider = new ConfigurationProvider() {
     @Override
     public boolean getBoolean(String key, boolean defaultValue) { return true; }
     
@@ -34,7 +34,7 @@ IConfigurationProvider configurationProvider = new IConfigurationProvider() {
     public String getString(String key, String defaultValue) {  return ""; }
 };
 
-IEnvironment environment = () -> false;
+Environment environment = () -> false;
 
 Serializer serializer = SerializerBuilder.build()
         .withCache(cache)
@@ -46,7 +46,7 @@ Serializer serializer = SerializerBuilder.build()
 And to add a logger instance:
 
 ```java
-ILogger logger = new ILogger() {
+Logger logger = new Logger() {
     @Override
     public Level getLevel() { return Level.ERROR; }
 
