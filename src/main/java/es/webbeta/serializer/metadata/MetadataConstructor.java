@@ -19,6 +19,7 @@ public class MetadataConstructor {
     private static final String KEY_GETTER = "getter";
 
     public static Metadata build(Map map) {
+        if (map == null) return null;
         Map.Entry<String, Map<String, Object>> root =
                 (Map.Entry<String, Map<String, Object>>) map.entrySet().iterator().next();
 
@@ -80,7 +81,7 @@ public class MetadataConstructor {
                         break;
                 }
 
-                if(!asVirtualProperties) {
+                if (!asVirtualProperties) {
                     switch (key) {
                         case KEY_ACCESS_TYPE:
                             metadataProperty.setAccessType(FieldAccessType.fromString((String) argEntry.getValue()));

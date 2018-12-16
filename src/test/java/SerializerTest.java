@@ -78,6 +78,15 @@ public class SerializerTest {
     }
 
     @Test
+    public void test_bean_with_metadata_file_but_no_content_returns_empty_object() {
+        Serializer serializer = getSerializerAs(FieldFormatterType.INHERITED, FieldAccessType.PROPERTY, DateFormatType.ISO8601, true);
+
+        String parsed = serializer.serialize(new EmptyMetadata(), "a");
+
+        assertThat(parsed).isEqualTo("{}");
+    }
+
+    @Test
     public void test_bean_with_wrong_defined_metadata_returns_empty_object() {
         Serializer serializer = getSerializerAs(FieldFormatterType.INHERITED, FieldAccessType.PROPERTY, DateFormatType.ISO8601, true);
 

@@ -35,7 +35,7 @@ public class SerializerYamlMetadataProvider implements SerializerMetadataProvide
         String yamlFileContents = metadataAccessor.getMetadataContent(klass);
         Metadata metadata = MetadataConstructor.build(yaml.loadAs(yamlFileContents, Map.class));
 
-        if (!metadata.appliesTo(klass.getCanonicalName())) {
+        if (metadata == null || !metadata.appliesTo(klass.getCanonicalName())) {
             putNullMetadata(klass);
             return;
         }
