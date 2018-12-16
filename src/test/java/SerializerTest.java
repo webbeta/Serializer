@@ -96,6 +96,15 @@ public class SerializerTest {
     }
 
     @Test
+    public void test_null_objects_prints_correct_serialization() throws JsonProcessingException {
+        Serializer serializer = getSerializerAs(FieldFormatterType.INHERITED, FieldAccessType.PROPERTY, DateFormatType.ISO8601, true);
+
+        String parsed = serializer.serialize(null, "a_group");
+
+        assertThat(parsed).isNull();
+    }
+
+    @Test
     public void test_scalar_fields_prints_correct_serialization() throws JsonProcessingException {
         Serializer serializer = getSerializerAs(FieldFormatterType.INHERITED, FieldAccessType.PROPERTY, DateFormatType.ISO8601, true);
 

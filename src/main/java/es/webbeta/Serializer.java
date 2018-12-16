@@ -262,6 +262,8 @@ public class Serializer {
      * @return JSON format string representing the object
      */
     public <T> String serialize(T ob, String... group) {
+        if (ob == null) return null;
+
         if (!initializeGenerator())
             return null;
 
