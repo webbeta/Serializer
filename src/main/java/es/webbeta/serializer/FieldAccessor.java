@@ -87,15 +87,14 @@ public class FieldAccessor implements es.webbeta.serializer.base.FieldAccessor {
                     field.setAccessible(true);
                 value = field.get(ob);
                 exists = true;
-            } catch (IllegalAccessException | NoSuchFieldException e) {
+            } catch (IllegalAccessException e) {
                 if (logger != null) {
-                    logger.error(String.format("Serializer cannot serialize field '%s.%s', because it %s",
-                            klass.getCanonicalName(), fieldName,
-                            e instanceof IllegalAccessException ? "is not public." :
-                                    "throw an exception when was called."
+                    logger.error(String.format("Serializer cannot serialize field '%s.%s', because it is not public.",
+                            klass.getCanonicalName(),
+                            fieldName
                     ));
                 }
-            }
+            } catch (NoSuchFieldException ignored) {}
         }
     }
 
