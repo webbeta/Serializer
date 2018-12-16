@@ -6,8 +6,28 @@
 
     <groupId>es.webbeta</groupId>
     <artifactId>serializer</artifactId>
-    <name>webBeta Serializer</name>
     <version>1.0-SNAPSHOT</version>
+
+    <name>webBeta Serializer</name>
+    <description>YML based serializer for Java.</description>
+    <url>https://github.com/webbeta/Serializer</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <email>moises@webbeta.es</email>
+            <name>Moisés Gramary</name>
+            <url>https://github.com/mowcixo</url>
+            <id>mowcixo</id>
+        </developer>
+    </developers>
+
     <build>
         <plugins>
             <plugin>
