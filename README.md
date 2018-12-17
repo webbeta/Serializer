@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/webbeta/Serializer.svg?branch=master)](https://travis-ci.org/webbeta/Serializer)
 [![Coverage Status](https://codecov.io/gh/webbeta/Serializer/branch/master/graph/badge.svg)](https://codecov.io/gh/webbeta/Serializer)
 [![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Maven](https://img.shields.io/maven-central/v/es.webbeta/serializer.svg)](http://mvnrepository.com/artifact/es.webbeta/serializer)
 
 * [What is webBeta Serializer?](#what-is-webbeta-serializer?)
 * [Quick examples](#quick-examples)
