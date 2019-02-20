@@ -4,6 +4,8 @@
 [![Coverage Status](https://codecov.io/gh/webbeta/Serializer/branch/master/graph/badge.svg)](https://codecov.io/gh/webbeta/Serializer)
 [![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Maven](https://img.shields.io/maven-central/v/es.webbeta/serializer.svg)](http://mvnrepository.com/artifact/es.webbeta/serializer)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/webbeta/Serializer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/webbeta/Serializer/alerts/)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/webbeta/Serializer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/webbeta/Serializer/context:java)
 
 * [What is webBeta Serializer?](#what-is-webbeta-serializer?)
 * [Quick examples](#quick-examples)
