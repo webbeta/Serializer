@@ -23,7 +23,7 @@ public class FieldFormatter implements es.webbeta.serializer.base.FieldFormatter
         if (formatterType == FieldFormatterType.INHERITED)
             return name;
         else {
-            Boolean hasDashOrUnderscore = name.contains("-") || name.contains("_");
+            boolean hasDashOrUnderscore = name.contains("-") || name.contains("_");
 
             if (hasDashOrUnderscore) {
                 name = name.replace("-", "_");
