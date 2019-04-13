@@ -2,7 +2,6 @@ package util.serializer;
 
 public class ClassWithGetters {
 
-    private Integer id;
     private String foo;
     private Boolean bar;
 
@@ -11,7 +10,6 @@ public class ClassWithGetters {
     private String barMethod3;
 
     public ClassWithGetters() {
-        id = 500;
         foo = "Hello world!";
         bar = true;
         barMethod = "Foo";
@@ -20,7 +18,6 @@ public class ClassWithGetters {
     }
 
     public ClassWithGetters(Integer id) {
-        id = id;
         foo = "Hello world!";
         bar = true;
         barMethod = "Foo";

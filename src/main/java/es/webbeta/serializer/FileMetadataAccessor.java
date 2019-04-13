@@ -15,15 +15,15 @@ public class FileMetadataAccessor implements MetadataAccessor {
 
     protected Path metadataPath = null;
 
-    private Path buildPath(Class klass, String extension) {
+    private Path buildPath(Class<?> klass, String extension) {
         return Paths.get(metadataPath.toString(), klass.getCanonicalName() + extension);
     }
 
-    private Boolean hasYmlMetadata(Class klass) {
+    private Boolean hasYmlMetadata(Class<?> klass) {
         return Files.exists(buildPath(klass, YML_EXT));
     }
 
-    private Boolean hasYamlMetadata(Class klass) {
+    private Boolean hasYamlMetadata(Class<?> klass) {
         return Files.exists(buildPath(klass, YAML_EXT));
     }
 
@@ -33,13 +33,13 @@ public class FileMetadataAccessor implements MetadataAccessor {
     }
 
     @Override
-    public Boolean hasMetadata(Class klass) {
+    public Boolean hasMetadata(Class<?> klass) {
         return hasYmlMetadata(klass) ||
                 hasYamlMetadata(klass);
     }
 
     @Override
-    public String getMetadataContent(Class klass) {
+    public String getMetadataContent(Class<?> klass) {
         String contents = null;
 
         try {

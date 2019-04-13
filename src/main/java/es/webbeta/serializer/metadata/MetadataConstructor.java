@@ -18,7 +18,7 @@ public class MetadataConstructor {
     private static final String KEY_GROUPS = "groups";
     private static final String KEY_GETTER = "getter";
 
-    public static Metadata build(Map map) {
+    public static Metadata build(Map<?,?> map) {
         if (map == null) return null;
         Map.Entry<String, Map<String, Object>> root =
                 (Map.Entry<String, Map<String, Object>>) map.entrySet().iterator().next();
@@ -70,7 +70,7 @@ public class MetadataConstructor {
                 switch (key) {
                     case KEY_GROUPS:
                         List<String> groups = new ArrayList<>();
-                        for (Object rawGroup : (List) argEntry.getValue()) {
+                        for (Object rawGroup : (List<?>) argEntry.getValue()) {
                             String group = (String) rawGroup;
                             groups.add(group);
                         }

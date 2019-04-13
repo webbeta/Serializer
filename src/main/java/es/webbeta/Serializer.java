@@ -202,7 +202,7 @@ public class Serializer {
     }
 
     private void fillWith(Boolean asArray, JsonGenerator gen, final ParentFieldData parentData, final Object ob, final String[] group) throws IOException {
-        Class klass = ob.getClass();
+        Class<?> klass = ob.getClass();
         String[] fields = provider.getPropertiesByGroup(klass, parentData, group);
         if (asArray)
             gen.writeStartArray();
