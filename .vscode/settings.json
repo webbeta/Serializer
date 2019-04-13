@@ -1,9 +1,0 @@
-{
-    "java.home": "/usr/lib/jvm/default-java",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    }
-}
