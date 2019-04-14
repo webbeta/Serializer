@@ -140,7 +140,7 @@ public class TypeChecker {
         else if (isIterable(value))
             callback.itsIterable((Iterable<?>) value);
         else if (isMap(value))
-            callback.itsMap((Map<?, ?>) value);
+            callback.itsMap((Map<?,?>) value);
     }
 
 }
