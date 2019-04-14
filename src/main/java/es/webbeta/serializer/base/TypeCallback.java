@@ -23,5 +23,5 @@ public interface TypeCallback {
     void itsSerializableObject(Object value) throws IOException;
     void itsUnserializableObject(Object value) throws IOException;
     void itsIterable(Iterable<?> value) throws IOException;
-    void itsMap(Map<?,?> value) throws IOException;
+    void itsMap(Map<?, ?> value) throws IOException;
 }

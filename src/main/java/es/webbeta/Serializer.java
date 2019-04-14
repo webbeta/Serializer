@@ -185,7 +185,7 @@ public class Serializer {
             }
 
             @Override
-            public void itsMap(Map<?,?> value) throws IOException {
+            public void itsMap(Map<?, ?> value) throws IOException {
                 gen.writeStartObject();
                 for (Map.Entry<?, ?> entry : value.entrySet()) {
                     String[] parentGroups = provider.getGroupsByFieldName(parentFieldData.getKlass(), parentFieldData.getFieldName());
