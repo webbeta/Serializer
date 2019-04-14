@@ -79,11 +79,12 @@ public class FieldAccessor implements es.webbeta.serializer.base.FieldAccessor {
         initialized = true;
     }
 
+    @SuppressWarnings("all")
     private void buildAsProperty() {
         for (Class<?> klass : klassTree) {
             try {
                 Field field = klass.getDeclaredField(fieldName);
-                if (!field.canAccess(field))
+                if (!field.isAccessible())
                     field.setAccessible(true);
                 value = field.get(ob);
                 exists = true;
