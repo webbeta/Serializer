@@ -1,5 +1,6 @@
 package util.serializer;
 
+@SuppressWarnings(value = "all")
 public class ClassWithGetters2 {
 
     private Integer id;

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings(value = "all")
 public class Foo {
 
     private Integer id = 654;

@@ -2,6 +2,7 @@ package util.serializer;
 
 public class ClassWithGetters {
 
+    @SuppressWarnings("all")
     private Integer id;
     private String foo;
     private Boolean bar;
@@ -19,6 +20,7 @@ public class ClassWithGetters {
         barMethod3 = "Foo";
     }
 
+    @SuppressWarnings("all")
     public ClassWithGetters(Integer id) {
         id = id;
         foo = "Hello world!";

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.UUID;
 
+@SuppressWarnings(value = "all")
 public class TypeChecks {
 
     enum FooEnum {

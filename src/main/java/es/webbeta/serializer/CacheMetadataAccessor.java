@@ -34,12 +34,12 @@ public class CacheMetadataAccessor extends FileMetadataAccessor implements Metad
     }
 
     @Override
-    public Boolean hasMetadata(Class klass) {
+    public Boolean hasMetadata(Class<?> klass) {
         return super.hasMetadata(klass);
     }
 
     @Override
-    public String getMetadataContent(Class klass) {
+    public String getMetadataContent(Class<?> klass) {
         String key = generateKey(klass);
         if (cache.get(key) != null)
             return cache.get(key);

@@ -79,6 +79,7 @@ public class FieldAccessor implements es.webbeta.serializer.base.FieldAccessor {
         initialized = true;
     }
 
+    @SuppressWarnings("all")
     private void buildAsProperty() {
         for (Class<?> klass : klassTree) {
             try {
