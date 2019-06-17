@@ -1,10 +1,11 @@
-package es.webbeta.serializer.metadata;
+package es.webbeta.serializer.base;
 
+import es.webbeta.serializer.metadata.MetadataPropertyAccessor;
 import es.webbeta.serializer.type.FieldAccessType;
 
 import java.util.List;
 
-public interface IMetadataProperty {
+public interface MetadataProperty {
     String getPropertyName();
     Boolean hasAccessType();
     FieldAccessType getAccessType();

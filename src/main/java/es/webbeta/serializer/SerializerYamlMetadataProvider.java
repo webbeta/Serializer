@@ -1,5 +1,6 @@
 package es.webbeta.serializer;
 
+import es.webbeta.serializer.base.MetadataProperty;
 import es.webbeta.serializer.base.MetadataAccessor;
 import es.webbeta.serializer.base.ParentFieldData;
 import es.webbeta.serializer.base.SerializerMetadataProvider;
@@ -76,7 +77,7 @@ public class SerializerYamlMetadataProvider implements SerializerMetadataProvide
         Metadata metadata = getMetadata(klass);
 
         if (metadata.hasProperties()) {
-            for (MetadataProperty property : metadata.getProperties()) {
+            for (es.webbeta.serializer.metadata.MetadataProperty property : metadata.getProperties()) {
                 if (parentData != null && parentData.isRecursive(klass, property.getPropertyName()))
                     continue;
 
@@ -107,7 +108,7 @@ public class SerializerYamlMetadataProvider implements SerializerMetadataProvide
     @Override
     public String[] getGroupsByFieldName(Class<?> klass, String fieldName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(fieldName);
+        MetadataProperty property = metadata.getMixedProperty(fieldName);
         return property.getGroups().toArray(new String[0]);
     }
 
@@ -126,21 +127,21 @@ public class SerializerYamlMetadataProvider implements SerializerMetadataProvide
     @Override
     public Boolean hasPropertyAccessType(Class<?> klass, String propertyName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(propertyName);
+        MetadataProperty property = metadata.getMixedProperty(propertyName);
         return property.hasAccessType();
     }
 
     @Override
     public FieldAccessType getPropertyAccessType(Class<?> klass, String propertyName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(propertyName);
+        MetadataProperty property = metadata.getMixedProperty(propertyName);
         return property.getAccessType();
     }
 
     @Override
     public String getPropertyCustomGetterName(Class<?> klass, String propertyName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(propertyName);
+        MetadataProperty property = metadata.getMixedProperty(propertyName);
         MetadataPropertyAccessor accessor = property.getAccessor();
         if (accessor == null || !accessor.hasGetter())
             return null;
@@ -151,21 +152,21 @@ public class SerializerYamlMetadataProvider implements SerializerMetadataProvide
     @Override
     public Boolean hasPropertySerializedName(Class<?> klass, String propertyName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(propertyName);
+        MetadataProperty property = metadata.getMixedProperty(propertyName);
         return property.hasSerializedName();
     }
 
     @Override
     public String getPropertySerializedName(Class<?> klass, String propertyName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(propertyName);
+        MetadataProperty property = metadata.getMixedProperty(propertyName);
         return property.getSerializedName();
     }
 
     @Override
     public Boolean isVirtualProperty(Class<?> klass, String propertyName) {
         Metadata metadata = getMetadata(klass);
-        IMetadataProperty property = metadata.getMixedProperty(propertyName);
+        MetadataProperty property = metadata.getMixedProperty(propertyName);
         return property instanceof MetadataVirtualProperty;
     }
 

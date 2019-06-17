@@ -1,5 +1,6 @@
 package es.webbeta.serializer.metadata;
 
+import es.webbeta.serializer.base.MetadataProperty;
 import es.webbeta.serializer.type.FieldAccessType;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class MetadataConstructor {
 
             switch (key) {
                 case KEY_PROPERTIES: {
-                    List<MetadataProperty> properties =
+                    List<es.webbeta.serializer.metadata.MetadataProperty> properties =
                             buildProperties((Map<String, Map<String, Object>>) modifierEntry.getValue(), false);
                     metadata.setProperties(properties);
                     break;
@@ -53,16 +54,16 @@ public class MetadataConstructor {
         return metadata;
     }
 
-    private static <T extends IMetadataProperty> List<T> buildProperties(Map<String, Map<String, Object>> map, Boolean asVirtualProperties) {
-        List<IMetadataProperty> properties = new ArrayList<>();
+    private static <T extends MetadataProperty> List<T> buildProperties(Map<String, Map<String, Object>> map, Boolean asVirtualProperties) {
+        List<MetadataProperty> properties = new ArrayList<>();
 
         for (Map.Entry<String, Map<String, Object>> propertyEntry : map.entrySet()) {
             String propertyName = propertyEntry.getKey();
             Map<String, Object> args = propertyEntry.getValue();
 
-            IMetadataProperty metadataProperty = asVirtualProperties ?
+            MetadataProperty metadataProperty = asVirtualProperties ?
                     new MetadataVirtualProperty(propertyName) :
-                    new MetadataProperty(propertyName);
+                    new es.webbeta.serializer.metadata.MetadataProperty(propertyName);
 
             for (Map.Entry<String, Object> argEntry : args.entrySet()) {
                 String key = argEntry.getKey();
@@ -101,7 +102,7 @@ public class MetadataConstructor {
         return (List<T>) properties;
     }
 
-    private static MetadataPropertyAccessor buildPropertyAccessor(IMetadataProperty metadataProperty, Map<String, String> map) {
+    private static MetadataPropertyAccessor buildPropertyAccessor(MetadataProperty metadataProperty, Map<String, String> map) {
         if (metadataProperty.getAccessType() != FieldAccessType.PUBLIC_METHOD) return null;
 
         String getter = null;

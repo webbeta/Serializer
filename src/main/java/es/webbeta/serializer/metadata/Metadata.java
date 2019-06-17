@@ -1,5 +1,6 @@
 package es.webbeta.serializer.metadata;
 
+import es.webbeta.serializer.base.MetadataProperty;
 import es.webbeta.serializer.type.FieldAccessType;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Metadata {
     private String canonicalName;
     private FieldAccessType accessType;
     private List<MetadataVirtualProperty> virtualProperties = new ArrayList<>();
-    private List<MetadataProperty> properties = new ArrayList<>();
+    private List<es.webbeta.serializer.metadata.MetadataProperty> properties = new ArrayList<>();
 
     Metadata(String canonicalName) {
         this.canonicalName = canonicalName;
@@ -69,7 +70,7 @@ public class Metadata {
         return properties.size() > 0;
     }
 
-    public List<MetadataProperty> getProperties() {
+    public List<es.webbeta.serializer.metadata.MetadataProperty> getProperties() {
         return properties;
     }
 
@@ -77,8 +78,8 @@ public class Metadata {
         return getProperty(name) != null;
     }
 
-    public MetadataProperty getProperty(String name) {
-        List<MetadataProperty> props = properties.stream()
+    public es.webbeta.serializer.metadata.MetadataProperty getProperty(String name) {
+        List<es.webbeta.serializer.metadata.MetadataProperty> props = properties.stream()
                 .filter(prop -> prop.getPropertyName().equals(name))
                 .collect(Collectors.toList());
 
@@ -88,7 +89,7 @@ public class Metadata {
             return props.get(0);
     }
 
-    public void setProperties(List<MetadataProperty> properties) {
+    public void setProperties(List<es.webbeta.serializer.metadata.MetadataProperty> properties) {
         this.properties = properties;
     }
 
@@ -96,7 +97,7 @@ public class Metadata {
         return hasProperties() || hasVirtualProperties();
     }
 
-    public List<IMetadataProperty> getMixedProperties() {
+    public List<MetadataProperty> getMixedProperties() {
         return Stream.concat(properties.stream(), virtualProperties.stream()).collect(Collectors.toList());
     }
 
@@ -104,10 +105,10 @@ public class Metadata {
         return getMixedProperty(name) != null;
     }
 
-    public IMetadataProperty getMixedProperty(String name) {
-        List<IMetadataProperty> mixedProps = getMixedProperties();
+    public MetadataProperty getMixedProperty(String name) {
+        List<MetadataProperty> mixedProps = getMixedProperties();
 
-        List<IMetadataProperty> props = mixedProps.stream()
+        List<MetadataProperty> props = mixedProps.stream()
                 .filter(prop -> prop.getPropertyName().equals(name))
                 .collect(Collectors.toList());
 

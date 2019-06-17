@@ -1,8 +1,9 @@
 package es.webbeta.serializer.metadata;
 
+import es.webbeta.serializer.base.MetadataProperty;
 import es.webbeta.serializer.type.FieldAccessType;
 
-public class MetadataVirtualProperty extends MetadataProperty implements IMetadataProperty {
+public class MetadataVirtualProperty extends es.webbeta.serializer.metadata.MetadataProperty implements MetadataProperty {
 
     MetadataVirtualProperty(String virtualPropertyName) {
         super(virtualPropertyName);

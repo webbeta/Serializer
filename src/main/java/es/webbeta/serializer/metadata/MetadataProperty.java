@@ -5,7 +5,7 @@ import es.webbeta.serializer.type.FieldAccessType;
 import java.util.Collections;
 import java.util.List;
 
-public class MetadataProperty implements IMetadataProperty {
+public class MetadataProperty implements es.webbeta.serializer.base.MetadataProperty {
 
     private String propertyName;
     protected FieldAccessType accessType;
