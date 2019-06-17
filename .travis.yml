@@ -1,5 +1,8 @@
-language: java
 sudo: false
+
+language: java
+jdk:
+  - oraclejdk8
 
 script: "mvn cobertura:cobertura"
 
