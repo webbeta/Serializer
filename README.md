@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/webbeta/Serializer.svg?branch=master)](https://travis-ci.org/webbeta/Serializer)
 [![Coverage Status](https://codecov.io/gh/webbeta/Serializer/branch/master/graph/badge.svg)](https://codecov.io/gh/webbeta/Serializer)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cc4bdde6e4434963be65533dc32907ac)](https://app.codacy.com/app/mowcixo/Serializer?utm_source=github.com&utm_medium=referral&utm_content=webbeta/Serializer&utm_campaign=Badge_Grade_Settings)
 [![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Maven](https://img.shields.io/maven-central/v/es.webbeta/serializer.svg)](http://mvnrepository.com/artifact/es.webbeta/serializer)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/webbeta/Serializer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/webbeta/Serializer/alerts/)
